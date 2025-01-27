@@ -1,0 +1,48 @@
+.feed-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f0f2f5;
+  min-height: 100vh;
+}
+
+.feed-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+.feed-header h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.auth-button {
+  padding: 10px 20px;
+  background-color: #1da1f2;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.auth-button:hover {
+  background-color: #0d8ddb;
+}
+
+.feed-container p {
+  color: red;
+}
+
+.feed-container .MuiCircularProgress-root {
+  margin-top: 50px;
+}
