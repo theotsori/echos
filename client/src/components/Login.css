@@ -1,60 +1,129 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
-.login-container {
+.futuristic-login-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  background-attachment: fixed;
+  background: #000;
+  overflow: hidden;
 }
 
-.login-box {
-  background-color: white;
-  padding: 40px;
+.futuristic-login-box {
+  position: relative;
+  padding: 2em;
+  background: rgba(0, 0, 0, 0.8);
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  width: 300px;
-}
-
-.login-box h2 {
-  margin-bottom: 20px;
-  font-size: 24px;
-  color: #333;
-}
-
-.login-form {
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
 }
 
-.login-form input {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.futuristic-title {
+  color: #FF00FF;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  text-shadow: 0 0 10px #FF00FF;
 }
 
-.login-form button {
-  width: 100%;
-  padding: 10px;
-  background-color: #1da1f2;
-  color: white;
+.futuristic-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-container input {
+  background: transparent;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  border-bottom: 1px solid #FF00FF;
+  color: #FF00FF;
+  padding: 10px 0;
+  width: 100%;
+  font-size: 16px;
 }
 
-.login-form button:hover {
-  background-color: #0d8ddb;
+.input-container input:focus, 
+.input-container input:valid {
+  outline: none;
+  border-bottom: 2px solid #FF00FF;
+}
+
+.input-container label {
+  color: #FF00FF;
+  position: absolute;
+  left: 0;
+  top: 10px;
+  transition: 0.2s ease all;
+  pointer-events: none;
+}
+
+.input-container input:focus + label,
+.input-container input:valid + label {
+  top: -20px;
+  font-size: 14px;
+  color: #FF00FF;
+}
+
+.futuristic-button {
+  background-color: transparent;
+  border: 1px solid #FF00FF;
+  color: #FF00FF;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.futuristic-button:hover {
+  background-color: #FF00FF;
+  color: #000;
+}
+
+.futuristic-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, #0000, #FF00FF33, #0000, #FF00FF33);
+  animation: futuristicPulse 5s infinite;
+  z-index: -1;
+}
+
+@keyframes futuristicPulse {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.signup-option {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.signup-prompt {
+  color: #FF00FF;
+  font-family: 'Orbitron', sans-serif;
+  text-shadow: 0 0 5px #FF00FF;
+}
+
+.signup-link {
+  background: none;
+  border: none;
+  color: #FF00FF;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+  text-decoration: underline;
+  padding: 0;
+  font-size: inherit;
+  transition: color 0.3s ease;
+}
+
+.signup-link:hover {
+  color: #CC00CC;
 }

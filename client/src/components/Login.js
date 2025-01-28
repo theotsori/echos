@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './Login.css'; // Import the CSS file
+import './Login.css'; // Assuming you have updated your CSS file
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -12,35 +12,58 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post('/api/users/login', { email, password });
-      // Store token (e.g., in localStorage)
       localStorage.setItem('token', response.data.token);
-      navigate('/feed'); 
+      navigate('/feed');
     } catch (error) {
-      console.error(error);
+      console.error('Login error:', error);
     }
   };
 
+  // New function to handle navigation to sign up page
+  const handleSignUp = () => {
+    navigate('/signup');
+  };
+
   return (
-    <div className="login-container">
-      <div className="login-box">
-        <h2>Login</h2>
-        <form className="login-form" onSubmit={handleLogin}>
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <button type="submit">Login</button>
+    <div className="futuristic-login-container">
+      <div className="futuristic-login-box">
+        <h2 className="futuristic-title">Enter the Matrix</h2>
+        <form className="futuristic-form" onSubmit={handleLogin}>
+          <div className="input-container">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder=" "
+              required
+            />
+            <label htmlFor="email">Email</label>
+          </div>
+          <div className="input-container">
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder=" "
+              required
+            />
+            <label htmlFor="password">Password</label>
+          </div>
+          <button type="submit" className="futuristic-button">Authenticate</button>
         </form>
+        <div className="signup-option">
+          <p className="signup-prompt">
+            Don't have an account? 
+            <button 
+              type="button" 
+              className="signup-link" 
+              onClick={handleSignUp}
+            >
+                Sign Up
+            </button>
+          </p>
+        </div>
+        <div className="futuristic-overlay"></div>
       </div>
     </div>
   );
