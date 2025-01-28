@@ -1,140 +1,230 @@
-.futuristic-signup-container {
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #1a1a1a, #2c3e50);
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: #000;
   overflow: hidden;
 }
 
+/* Container for the Signup Box */
+.futuristic-signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+
+/* Signup Box Styling */
 .futuristic-signup-box {
   position: relative;
-  padding: 2em;
-  background: rgba(0, 0, 0, 0.8);
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px;
+  width: 100%;
   max-width: 400px;
-  width: 100%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
 }
 
-.futuristic-title {
-  color: #FF00FF;
-  font-family: 'Orbitron', sans-serif;
-  text-align: center;
-  text-shadow: 0 0 10px #FF00FF;
-}
-
-.futuristic-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.input-container {
-  position: relative;
-  margin-bottom: 20px;
-}
-
-.input-container input {
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid #FF00FF;
-  color: #FF00FF;
-  padding: 10px 0;
-  width: 100%;
-  font-size: 16px;
-}
-
-.input-container input:focus, 
-.input-container input:valid {
-  outline: none;
-  border-bottom: 2px solid #FF00FF;
-}
-
-.input-container label {
-  color: #FF00FF;
-  position: absolute;
-  left: 0;
-  top: 10px;
-  transition: 0.2s ease all;
-  pointer-events: none;
-}
-
-.input-container input:focus + label,
-.input-container input:valid + label {
-  top: -20px;
-  font-size: 14px;
-  color: #FF00FF;
-}
-
-.futuristic-button {
-  background-color: transparent;
-  border: 1px solid #FF00FF;
-  color: #FF00FF;
-  padding: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 20px;
-}
-
-.futuristic-button:hover {
-  background-color: #FF00FF;
-  color: #000;
-}
-
-.alternative-signup {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.futuristic-social-button {
-  background-color: transparent;
-  border: 1px solid #FF00FF;
-  color: #FF00FF;
-  padding: 10px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  width: 48%; /* Make buttons take half width each */
-}
-
-.futuristic-social-button:hover {
-  background-color: #FF00FF;
-  color: #000;
-}
-
-.login-prompt {
-  margin-top: 20px;
-  text-align: center;
-  color: #FF00FF;
-}
-
-.login-link {
-  color: #FF00FF;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.login-link:hover {
-  color: #CC00CC;
-}
-
+/* Overlay for Futuristic Effect */
 .futuristic-overlay {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(45deg, #0000, #FF00FF33, #0000, #FF00FF33);
-  animation: futuristicPulse 5s infinite;
-  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+  pointer-events: none;
+  z-index: 1;
 }
 
-@keyframes futuristicPulse {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* Title Styling */
+.futuristic-title {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+  z-index: 2;
+  position: relative;
+}
+
+/* Form Styling */
+.futuristic-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 2;
+  position: relative;
+}
+
+/* Input Container */
+.input-container {
+  position: relative;
+  width: 100%;
+}
+
+/* Input Field Styling */
+.input-container input {
+  width: 100%;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-container input:focus {
+  border-color: #00ff88;
+  box-shadow: 0 0 8px rgba(0, 255, 136, 0.4);
+}
+
+/* Label Styling */
+.input-container label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.input-container input:focus + label,
+.input-container input:not(:placeholder-shown) + label {
+  top: -10px;
+  left: 10px;
+  font-size: 0.8rem;
+  color: #00ff88;
+}
+
+/* Button Styling */
+.futuristic-button {
+  background: linear-gradient(135deg, #00ff88, #00b8d4);
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  color: #1a1a1a;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.futuristic-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(0, 255, 136, 0.4);
+}
+
+/* Social Signup Buttons */
+.alternative-signup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  z-index: 2;
+  position: relative;
+}
+
+.futuristic-social-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 12px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.futuristic-social-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.02);
+}
+
+.google-signup {
+  background: linear-gradient(135deg, #4285f4, #34a853);
+}
+
+.x-signup {
+  background: linear-gradient(135deg, #000000, #1da1f2);
+}
+
+/* Login Prompt Styling */
+.login-prompt {
+  text-align: center;
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  z-index: 2;
+  position: relative;
+}
+
+.login-link {
+  color: #00ff88;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.login-link:hover {
+  color: #00b8d4;
+}
+
+/* Accessibility: Focus States */
+input:focus-visible,
+button:focus-visible {
+  outline: 2px solid #00ff88;
+  outline-offset: 2px;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .futuristic-signup-box {
+    padding: 20px;
+  }
+
+  .futuristic-title {
+    font-size: 1.5rem;
+  }
+
+  .input-container input {
+    font-size: 0.9rem;
+  }
+
+  .futuristic-button {
+    font-size: 0.9rem;
+  }
+
+  .futuristic-social-button {
+    font-size: 0.9rem;
+  }
+
+  .login-prompt {
+    font-size: 0.8rem;
+  }
 }
