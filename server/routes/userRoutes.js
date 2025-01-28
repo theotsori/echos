@@ -1,8 +1,9 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const UserController = require('../controllers/userController');
 
-router.post('/register', UserController.register);
-router.post('/login', UserController.login);
+// Define your routes here
+router.get('/', (req, res) => {
+  res.send('User route');
+});
 
-module.exports = router;
+export default router;

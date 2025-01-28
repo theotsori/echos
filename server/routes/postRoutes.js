@@ -1,4 +1,4 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
 const PostController = require('../controllers/postController');
 const authMiddleware = require('../middleware/authMiddleware');
@@ -9,4 +9,4 @@ router.get('/:id', authMiddleware, PostController.getPost);
 router.put('/:id/like', authMiddleware, PostController.likePost);
 router.put('/:id/comment', authMiddleware, PostController.commentPost);
 
-module.exports = router;
+export default router;
