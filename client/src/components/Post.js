@@ -1,16 +1,14 @@
 import React from 'react';
-import './Post.css'; // Import the CSS file
+import './Post.css';
 
 const Post = ({ post }) => {
   return (
-    <div className="post">
-      <div className="post-header">
-        <div className="post-author">{post.author}</div>
-        <div className="post-date">{new Date(post.createdAt).toLocaleDateString()}</div>
-      </div>
-      <div className="post-body">
-        <h2>{post.title}</h2>
-        <p>{post.body}</p>
+    <div className="post-container">
+      <h2 className="post-title">{post.title}</h2>
+      <p className="post-body">{post.body}</p>
+      <div className="post-footer">
+        <span>By {post.author}</span>
+        <span>{new Date(post.createdAt).toLocaleDateString()}</span>
       </div>
     </div>
   );
