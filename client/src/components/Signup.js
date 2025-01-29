@@ -21,6 +21,7 @@ const Signup = () => {
 
   const handleGoogleSignup = () => {
     // Implement Google signup logic here
+    window.location.href = '/api/auth/google';
   };
 
   const handleXSignup = () => {

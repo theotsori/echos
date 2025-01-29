@@ -6,6 +6,7 @@ import './Login.css'; // Assuming you have updated your CSS file
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -15,11 +16,11 @@ const Login = () => {
       localStorage.setItem('token', response.data.token);
       navigate('/feed');
     } catch (error) {
+      setError('Invalid email or password');
       console.error('Login error:', error);
     }
   };
 
-  // New function to handle navigation to sign up page
   const handleSignUp = () => {
     navigate('/signup');
   };
@@ -49,6 +50,7 @@ const Login = () => {
             />
             <label htmlFor="password">Password</label>
           </div>
+          {error && <p className="error-message">{error}</p>}
           <button type="submit" className="futuristic-button">Authenticate</button>
         </form>
         <div className="signup-option">
