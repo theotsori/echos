@@ -1,5 +1,5 @@
-const Post = require('../models/post');
-const User = require('../models/user');
+import Post from '../models/post.js';
+import User from '../models/user.js';
 
 const createPost = async (req, res) => {
     const { text } = req.body;
@@ -59,4 +59,4 @@ const commentPost = async (req, res) => {
     }
 };
 
-module.exports = { createPost, getPosts, getPost, likePost, commentPost };
+export { createPost, getPosts, getPost, likePost, commentPost };

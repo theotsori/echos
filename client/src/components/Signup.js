@@ -12,10 +12,18 @@ const Signup = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/users/register', { name, email, password });
-      navigate('/login'); 
+      const response = await axios.post('/api/users/register', { 
+        name, 
+        email, 
+        password 
+      });
+      
+      // Store user data and token
+      localStorage.setItem('userInfo', JSON.stringify(response.data));
+      navigate('/dashboard'); // Redirect to dashboard instead of login
     } catch (error) {
-      console.error('Signup error:', error);
+      console.error('Signup error:', error.response?.data?.message || error.message);
+      // Add error state display here
     }
   };
 

@@ -1,12 +1,26 @@
 import express from 'express';
-const router = express.Router();
-const PostController = require('../controllers/postController');
-const authMiddleware = require('../middleware/authMiddleware');
+import { protect } from '../middleware/authMiddleware.js';
+import {
+    createPost,
+    getPosts,
+    getPost,
+    likePost,
+    commentPost
+} from '../controllers/postController.js';
 
-router.post('/', authMiddleware, PostController.createPost);
-router.get('/', authMiddleware, PostController.getPosts);
-router.get('/:id', authMiddleware, PostController.getPost);
-router.put('/:id/like', authMiddleware, PostController.likePost);
-router.put('/:id/comment', authMiddleware, PostController.commentPost);
+const router = express.Router();
+
+router.route('/')
+    .post(protect, createPost)
+    .get(getPosts);
+
+router.route('/:id')
+    .get(getPost);
+
+router.route('/like/:id')
+    .put(protect, likePost);
+
+router.route('/comment/:id')
+    .post(protect, commentPost);
 
 export default router;

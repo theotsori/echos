@@ -1,20 +1,33 @@
-const jwt = require('jsonwebtoken');
-const keys = require('../config/keys');
+import jwt from 'jsonwebtoken';
+import User from '../models/user.js';
 
-const authMiddleware = (req, res, next) => {
-    const token = req.header('x-auth-token');
+const protect = async (req, res, next) => {
+  let token;
 
-    if (!token) {
-        return res.status(401).json({ msg: 'No token, authorization denied' });
-    }
-
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith('Bearer')
+  ) {
     try {
-        const decoded = jwt.verify(token, keys.jwtSecret);
-        req.user = decoded.user;
-        next();
-    } catch (err) {
-        res.status(401).json({ msg: 'Token is not valid' });
+      // Get token from header
+      token = req.headers.authorization.split(' ')[1];
+
+      // Verify token
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+      // Get user from token
+      req.user = await User.findById(decoded.id).select('-password');
+
+      next();
+    } catch (error) {
+      console.error(error);
+      res.status(401).json({ message: 'Not authorized, token failed' });
     }
+  }
+
+  if (!token) {
+    res.status(401).json({ message: 'Not authorized, no token' });
+  }
 };
 
-module.exports = authMiddleware;
+export { protect }; // ES Modules named export
