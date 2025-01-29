@@ -1,6 +1,72 @@
-# Getting Started with Create React App
+# Echos Client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the client-side application for Echos, a social media platform where users can sign up, log in, and post content. The client is built using React.
+
+## Features
+
+- User authentication (sign up, log in)
+- Create, read, update, and delete posts
+- Responsive design
+- Modern UI with custom CSS
+
+## Technologies Used
+
+- React
+- Axios
+- React Router
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js and npm installed on your machine
+
+### Installation
+
+1. Clone the repository:
+
+```sh
+git clone https://github.com/your-username/echos.git
+cd echos/client
+```
+
+2. Install client dependencies:
+
+```sh
+npm install
+```
+
+### Running the Application
+
+1. Start the client:
+
+```sh
+npm start
+```
+
+2. Open your browser and navigate to `http://localhost:3000`.
+
+## Project Structure
+
+```plaintext
+client/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── Feed.js
+│   │   ├── Login.js
+│   │   ├── Signup.js
+│   │   ├── Post.js
+│   │   ├── Feed.css
+│   │   ├── Login.css
+│   │   ├── Signup.css
+│   │   └── Post.css
+│   ├── App.js
+│   ├── index.js
+│   └── App.css
+├── package.json
+└── ...
+```
 
 ## Available Scripts
 
@@ -8,7 +74,7 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
+Runs the app in development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
